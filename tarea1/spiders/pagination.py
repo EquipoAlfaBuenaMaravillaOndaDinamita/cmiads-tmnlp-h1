@@ -6,8 +6,8 @@ class PaginationSpider(scrapy.Spider):
     allowed_domains = ['tripadvisor.com']
     start_urls = ['https://www.tripadvisor.com/Hotels-g295366-Antigua_Sacatepequez_Department-Hotels.html']
     custom_settings = {'FEEDS':{'results.json':{'format':'json', 'overwrite': True}}}
-    max_hotels = 10
-    max_reviews_per_hotel = 5
+    max_hotels = 50
+    max_reviews_per_hotel = 500
 
     def parse(self, response, current_hotels=0):
         hotels = response.css('div.listing_title a').getall()
